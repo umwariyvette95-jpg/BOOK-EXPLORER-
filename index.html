@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Book Explorer — Where Great Reading Begins</title>
+  <meta name="description" content="Browse, search, and save your favorite books powered by Open Library API." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/style.css" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ink:    '#1a1a2e',
+            page:   '#f7f4ef',
+            accent: '#c0392b',
+            gold:   '#d4a944',
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body>
+
+<!-- ════════════════════════ NAVBAR ════════════════════════ -->
+<header>
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container-app flex items-center justify-between py-4">
+      <a href="index.html" class="navbar-brand">📚 Book<span>Explorer</span></a>
+
+      <ul class="desktop-nav flex items-center gap-8" role="list">
+        <li><a href="index.html" class="nav-link active">Home</a></li>
+        <li>
+          <a href="favorites.html" class="nav-link">
+            Favorites
+            <span class="fav-badge hidden" aria-label="favorites count">0</span>
+          </a>
+        </li>
+        <li><a href="about.html" class="nav-link">About</a></li>
+      </ul>
+
+      <button class="hamburger" id="hamburger-btn" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+      <a href="index.html" class="nav-link active">Home</a>
+      <a href="favorites.html" class="nav-link">
+        Favorites <span class="fav-badge hidden">0</span>
+      </a>
+      <a href="about.html" class="nav-link">About</a>
+    </div>
+  </nav>
+</header>
+
+<!-- ════════════════════════ HERO ════════════════════════ -->
+<section class="hero" aria-labelledby="hero-heading">
+  <div class="container-app" style="max-width:1200px; margin:0 auto; padding:0 1.5rem;">
+    <p class="hero-eyebrow">Open Library Powered</p>
+    <h1 class="hero-title" id="hero-heading">
+      Where Great Reading Begins
+    </h1>
+    <p class="hero-subtitle">
+      Search millions of books, explore new titles, and build your personal reading list — all in one place.
+    </p>
+    <div class="search-container" role="search">
+      <input
+        type="text"
+        id="search-input"
+        class="search-input"
+        placeholder="Search by title, e.g. 'Dune' or '1984'…"
+        aria-label="Search for books"
+        autocomplete="off"
+        spellcheck="false"
+      />
+      <button id="search-btn" class="search-btn" aria-label="Search books">Search</button>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════ CATEGORY FILTER ════════════════════════ -->
+<div class="filter-bar" id="filter-bar">
+  <div class="container-app">
+    <div class="filter-scroll">
+      <button class="filter-btn active" data-query="classic literature">All</button>
+      <button class="filter-btn" data-query="romance love story">💕 Romance</button>
+      <button class="filter-btn" data-query="mystery thriller detective">🔍 Mystery</button>
+      <button class="filter-btn" data-query="science fiction space future">🚀 Sci-Fi</button>
+      <button class="filter-btn" data-query="fantasy magic adventure">🧙 Fantasy</button>
+      <button class="filter-btn" data-query="horror scary ghost">👻 Horror</button>
+      <button class="filter-btn" data-query="biography memoir history">📖 Biography</button>
+      <button class="filter-btn" data-query="self help motivation">💡 Self-Help</button>
+      <button class="filter-btn" data-query="children kids fairy tale">🧸 Children</button>
+    </div>
+  </div>
+</div>
+
+
+<!-- ════════════════════════ BOOKS GRID ════════════════════════ -->
+<main class="section-pad container-app" id="main-content">
+  <div class="flex items-center justify-between mb-2">
+    <h2 class="section-title" id="result-heading">Featured Books</h2>
+  </div>
+  <div class="section-rule"></div>
+  <div
+    class="books-grid"
+    id="books-grid"
+    role="list"
+    aria-label="Book results"
+    aria-live="polite"
+    aria-busy="true"
+  ></div>
+</main>
+
+<!-- ════════════════════════ FOOTER ════════════════════════ -->
+<footer class="footer">
+  <div class="container-app">
+    <p class="footer-brand">📚 BookExplorer</p>
+    <p>Made by  Umwari </p>
+    <p class="mt-1" style="font-size:0.8rem; opacity:0.6;">
+      Data provided by <a href="https://openlibrary.org" target="_blank" rel="noopener">openlibrary.org</a>
+    </p>
+  </div>
+</footer>
+
+<script src="js/hamburger.js"></script>
+<script type="module" src="js/app.js"></script>
+
+</body>
+</html>
